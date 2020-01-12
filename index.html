@@ -3,10 +3,26 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>History API Sample</title>
 </head>
 <body>
-    <h1>hello world</h1>
-    <script>console.log("abc");</script>
+    <label for='name'>Name</label>
+    <input type='text' id='hisName' value='' />
+    <input type='button' id='pushButton' value='pushButton' />
+
+   <script>
+        alert('script1');
+        document.getElementById('pushButton').addEventListener('click', function() {
+            alert('pushButton1');
+           window.history.pushState({myName : 'katsu'}, null, null); 
+        });
+
+        window.addEventListener('popstate', function(e) {
+            alert('popstate1');
+            for(var i=0; i<3; i++) {
+                window.history.pushState({myName : 'katsu'}, null, null);
+			}
+		});
+    </script>
 </body>
 </html>
