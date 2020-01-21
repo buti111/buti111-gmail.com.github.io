@@ -13,17 +13,22 @@
 
     <script>
         alert('script1');
-        document.getElementById('pushButton').addEventListener('click', function() {
-            alert('pushButton1');
-           window.history.pushState({myName : 'katsu'}, null, null); 
-        });
 
-        window.addEventListener('popstate', function(e) {
-            alert('popstate1');
-            for(var i=0; i<3; i++) {
-                window.history.pushState({myName : 'katsu'}, null, null);
-            }
-        });
+        if (window.history && window.history.pushState) {
+            history.pushState(null, null, null);
+            
+            document.getElementById('pushButton').addEventListener('click', function() {
+                alert('pushButton1');
+               window.history.pushState({myName : 'katsu'}, null, null); 
+            });
+
+            window.addEventListener('popstate', function(e) {
+                alert('popstate1');
+                for(var i=0; i<3; i++) {
+                    window.history.pushState({myName : 'katsu'}, null, null);
+                }
+            });
+        }
     </script>
 </body>
 </html>

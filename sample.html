@@ -6,17 +6,21 @@
     <title>Sample page</title>
 </head>
 <body>
-    <input type="button" onclick="history.back()" value="–ß‚é" />
+    <input type="button" onclick="history.back()" value="æˆ»ã‚‹" />
 
     <script>
         alert('sample1');
 
-        window.addEventListener('popstate', function(e) {
-            alert('popstate1');
-            for(var i=0; i<3; i++) {
-                window.history.pushState({myName : 'katsu'}, null, null);
-            }
-        });
+        if (window.history && window.history.pushState) {
+            history.pushState(null, null, null);
+            
+            window.addEventListener('popstate', function(e) {
+                alert('popstate1');
+                for(var i=0; i<3; i++) {
+                    window.history.pushState({myName : 'katsu'}, null, null);
+                }
+            });
+        }
     </script>
 </body>
 </html>
