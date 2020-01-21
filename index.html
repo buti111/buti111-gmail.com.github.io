@@ -6,11 +6,12 @@
     <title>History API Sample</title>
 </head>
 <body>
-    <label for='name'>Name</label>
     <input type='text' id='hisName' value='' />
-    <input type='button' id='pushButton' value='pushButton' />
+    <input type='button' id='pushButton' value='pushHistory' />
+    <input type='button' id='noActionButton' value='noAction' />
+    <a href="./sample.html">sampleページに遷移</a>
 
-   <script>
+    <script>
         alert('script1');
         document.getElementById('pushButton').addEventListener('click', function() {
             alert('pushButton1');
@@ -21,8 +22,8 @@
             alert('popstate1');
             for(var i=0; i<3; i++) {
                 window.history.pushState({myName : 'katsu'}, null, null);
-			}
-		});
+            }
+        });
     </script>
 </body>
 </html>

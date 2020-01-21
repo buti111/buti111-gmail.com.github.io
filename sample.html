@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Sample page</title>
+</head>
+<body>
+    <input type="button" onclick="history.back()" value="–ß‚é" />
+
+    <script>
+        alert('sample1');
+
+        window.addEventListener('popstate', function(e) {
+            alert('popstate1');
+            for(var i=0; i<3; i++) {
+                window.history.pushState({myName : 'katsu'}, null, null);
+            }
+        });
+    </script>
+</body>
+</html>
