@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>History API Sample</title>
+    <script src="jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="browserBack.js" type="text/javascript"></script>
 </head>
 <body>
     <input type='text' id='hisName' value='' />
@@ -12,23 +14,10 @@
     <a href="./sample.html">sampleページに遷移</a>
 
     <script>
-        alert('script1');
-
-        if (window.history && window.history.pushState) {
-            history.pushState(null, null, null);
-            
-            document.getElementById('pushButton').addEventListener('click', function() {
-                alert('pushButton1');
-               window.history.pushState({myName : 'katsu'}, null, null); 
-            });
-
-            window.addEventListener('popstate', function(e) {
-                alert('popstate1');
-                for(var i=0; i<3; i++) {
-                    window.history.pushState({myName : 'katsu'}, null, null);
-                }
-            });
-        }
+        $('#pushButton').off('click');
+        $('#pushButton').on('click', function() {
+            alert('script1');
+        });
     </script>
 </body>
 </html>
